@@ -1,8 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import { useState } from 'react';
 
 function App() {
+
+  const [response, setResponse] = useState('');
 
   const apiCall = () => {
     // Make a request for a user with a given ID
@@ -10,6 +13,8 @@ function App() {
       .then(function (response) {
         // handle success
         console.log(response);
+        console.log(response.data);
+        setResponse(response.data);
       })
       .catch(function (error) {
         // handle error
@@ -36,7 +41,7 @@ function App() {
           Learn React
         </a>
       </header>
-      
+      <p>{response}</p>
       <button type="button" onClick={apiCall}>API Call</button>
       
     </div>

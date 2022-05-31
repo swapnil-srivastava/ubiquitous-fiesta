@@ -1,7 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function App() {
+
+  const apiCall = () => {
+    // Make a request for a user with a given ID
+    axios.get('/hello')
+      .then(function (response) {
+        // handle success
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +37,9 @@ function App() {
           Learn React
         </a>
       </header>
+      
+      <button type="button" onClick={apiCall}>API Call</button>
+      
     </div>
   );
 }

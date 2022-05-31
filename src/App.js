@@ -6,7 +6,7 @@ function App() {
 
   const apiCall = () => {
     // Make a request for a user with a given ID
-    axios.get('/hello')
+    axios.get('/api')
       .then(function (response) {
         // handle success
         console.log(response);
